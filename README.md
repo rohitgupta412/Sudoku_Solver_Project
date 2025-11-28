@@ -3,6 +3,10 @@
 This is a fully interactive, modular, terminal-based Sudoku game written in C, designed according to the **UPES Major Project Guidelines**.
 
 ---
+**Student:** Rohit Gupta <br>
+**Roll No:** 590023408 <br>
+**Course:** B.Tech CSE, UPES <br>
+**Instructor:** Dr. Tanu Singh <br>
 
 # 📌 Features
 
