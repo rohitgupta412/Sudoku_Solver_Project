@@ -1,1 +1,222 @@
-sudoku
+PROJECT REPORT
+------------------------------------------------------------
+Course Code: CSEG1032
+Course Title: Programming in C
+Project Title: SUDOKU SOLVER
+Student Name : Rohit Gupta 
+Sap Id : 590023408
+Semester: 1st sem (2025)
+
+  
+  
+ABSTRACT:  
+This project presents an interactive Sudoku solver implemented in C. The system allows users to fill empty cells in a Sudoku puzzle while validating each move according to Sudoku rules. The program tracks completion time and generates a personalized certificate upon successful completion. The project demonstrates algorithm design, input validation, matrix manipulation, and user interaction in C programming 
+   
+      
+  
+3.    Problem Definition   
+Sudoku is a logic-based puzzle where a 9×9 grid must be filled with digits 1–9 such that: 
+•	Each row contains all digits without repetition. 
+•	Each column contains all digits without repetition. 
+•	Each 3×3 sub-grid contains all digits without repetition. 
+The problem is to design a program that: 
+1.	Displays the puzzle clearly. 
+2.	Accepts user moves. 
+3.	Validates moves against Sudoku rules. 
+4.	Tracks completion and time taken. 
+5.	Provides a completion certificate. 
+ 
+4. System Design:  
+       Flowchart 
+┌───────────────┐ │ Start Program │ └───────┬───────┘ │ ┌───────▼────────┐ │ Print Puzzle │ └───────┬────────┘ │ 
+┌─────────▼─────────┐ │ Puzzle Completed? │───Yes──► Print Certificate & End └─────────┬─────────┘ │ No 
+┌───────▼────────┐ │ Get User Move │ └───────┬────────┘ │ ┌─────────▼─────────┐ │ Validate Move? │ └───────┬
+───────────┘ │Yes ▼ Update Puzzle Grid │ └──► Loop Back  
+ Algorithm 
+1.	Initialize puzzle with predefined values. 
+2.	Print puzzle using print_puzzle(). 
+3.	Check completion using is_completed(). 
+4.	Accept user input (row, column, value). 
+5.	Validate move using valid_move(). 
+o Check row, column, and 3×3 sub-grid. 
+6.	If valid → update puzzle. 
+7.	If invalid → reject move. 
+8.	Repeat until puzzle is solved or user exits. 
+Implementation Details 
+Key Functions 
+•	print_puzzle(): Displays puzzle with grid formatting. 
+•	valid_move(): Ensures Sudoku rules are followed. 
+•	is_completed(): Checks if all cells are filled. 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+Algorithm for Main:   
+   
+1.	Input Player Details o Prompt user for Name, SAP ID, and College Name. 
+o Store these values in variables. 
+2.	Display Welcome Message o Print a welcome banner for the interactive Sudoku game. 
+3.	Initialize Timer 
+o	Record the start time using time(&start). 
+4.	Game Loop (Repeat until exit or completion) o Step 4.1: Print the current Sudoku puzzle using print_puzzle(). 
+o	Step 4.2: Check if puzzle is completed using is_completed(). 
+	If completed: 
+	Record end time. 
+	Calculate time taken. 
+	Print congratulations message and completion certificate. 
+	Exit loop. 
+o	Step 4.3: Prompt user for a move → (row, col, value) or -1 to exit. 
+ If input is -1: 
+1.	Print exit message. 
+2.	Break loop. 
+                        Step 4.4: Validate input range: 
+1.	Row   [0,8], Col   [0,8], Value   [1,9]. 
+2.	If invalid → print error and continue loop.                         Step 4.5: Check if cell is already filled: 
+1. If filled → print error and continue loop. 
+                        Step 4.6: Validate move using valid_move(): 
+1.	If valid → place value in puzzle and print success message. 
+2.	If invalid → print error message. 
+5.	End Program 
+• Return 0 to indicate successful execution.  
+  
+ 
+  
+Algorithm for print_puzzle():  
+   
+1.	Print the top border of the Sudoku grid Output: +-------+-------+-------+ 
+2.	Loop through each row (row = 0 to 8): 
+o	If the row index is divisible by 3 (and not 0), 
+print a horizontal separator line: 
+|-------+-------+-------| o Start a new line for the row. 
+3.	Loop through each column (col = 0 to 8): 
+o	If the column index is divisible by 3, print a vertical separator "| ". o If the cell puzzle[row][col] is not zero: 
+ Print the number followed by a space. 
+o	Else (cell is empty): 
+o	Print "." followed by a space. 
+4.	End of row: 
+o	Print closing "|" at the end of each row. 5. After all rows are printed: 
+•	Print the bottom border of the Sudoku grid: +-------+-------+-------+ 
+ 
+ 
+ 
+  
+  
+  
+ALGORITHM FOR valid_move():   
+   
+•	puzzle[9][9] → the Sudoku grid 
+•	row → row index of the move 
+•	col → column index of the move 
+•	val → value to be placed Steps: 
+1.	Check Row Constraint o Loop through all columns in the given row. 
+o If any cell in that row already contains val, return 0 (invalid move). 
+2.	Check Column Constraint o Loop through all rows in the given column. 
+o	If any cell in that column already contains val, return 0 (invalid move). 3. Identify 3×3 Sub-grid 
+o	Compute starting indices of the sub-grid: 
+	r = row - row % 3 
+	c = col - col % 3 o This ensures we find the top-left corner of the 3×3 block containing (row, col). 
+4.	Check Sub-grid Constraint o Loop through the 3×3 block starting at (r, c). 
+o If any cell in this block already contains val, return 0 (invalid move). 
+5.	If All Checks Pass • Return 1 (valid move). 
+ 
+   
+    
+   
+   
+   
+   
+   
+   
+   
+   
+ALGORITHM FOR computer_move():  
+  
+Input: 
+• puzzle[9][9] → the Sudoku grid Steps: 
+1.	Loop through each row (i = 0 to 8): 
+o	For each row, loop through each column (j = 0 to 8). 
+2.	Check for empty cells: 
+o	If puzzle[i][j] == 0 (meaning the cell is empty): 
+o	Return 0 (puzzle is not completed). 
+3.	If no empty cells are found: 
+• After scanning all rows and columns, return 1 (puzzle is completed). 
+ 
+ 
+  
+   
+   
+   
+   
+   
+   
+               
+TESTING AND RESULTS:  
+  
+   
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+       
+Conclusion & Future Work   
+  
+Conclusion: The project meets objectives: valid gameplay, score tracking, and two AI modes.   
+Future work: implement Minimax with alpha-beta pruning for optimal play, add GUI, and support networked two-player mode    
+References  
+  
+  
+●	Let Us C – Yashavant Kanetkar   
+●	GeeksforGeeks    
+●	Class notes by DR. TANU SINGH   
+● YouTube: Complete coding by Prashant  
+   
+   
+   
+          
+                                              
+   
+      
+   
+   
+   
+   
+   
+   
+  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
