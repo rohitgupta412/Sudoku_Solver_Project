@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <time.h>
 #include "sudoku.h"
+#include "utils.h"
+
 
 // Initial Puzzle
 int puzzle[9][9] = {
@@ -35,7 +37,9 @@ int main() {
     printf("Enter your College Name: ");
     scanf(" %[^\n]", college);
 
-    printf("\n\tWELCOME TO INTERACTIVE SUDOKU GAME!");
+   clear_screen();
+printf("\n\tWELCOME TO INTERACTIVE SUDOKU GAME!");
+
     printf("\nFill all empty cells correctly.\n");
 
     time_t start, end;
